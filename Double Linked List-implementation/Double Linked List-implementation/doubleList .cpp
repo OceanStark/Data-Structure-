@@ -1,5 +1,7 @@
 #include "doubleList .h"
 struct Node* head = NULL;
+struct Node* End = NULL;
+
 Node* GetNewNode(int data){
     Node* NewNode = (Node*)malloc(sizeof(struct Node));
     NewNode->data = data;
@@ -50,10 +52,11 @@ void InsertAtHead(int x){
 void InsertAtEnd(int x){
     Node* temp = GetNewNode(x);
     if (head == NULL) {
-        head = temp;
+        head = End = temp;
         return;
     }
     else {
+        /*
         Node* temp1 = head;
         while (temp1->next != NULL) {
             temp1 = temp1->next;
@@ -61,6 +64,13 @@ void InsertAtEnd(int x){
         temp1->next = temp;
         temp->prev = temp1;
         temp->next = NULL;
+        */
+
+        /* 常数时间写法 */
+        Node* temp1 = End;
+        End->next = temp;
+        temp->prev = End;
+        End = temp;
     }
 }
 void FreeNode() {

@@ -33,9 +33,9 @@ bool WhetherbacketsBalance(string Express){
 }
 
 int main() {
-	string expression;
-	cout << "Enter an expression: ";
-	while (cin >> expression)
+	string expression;	//定义一个测试字符串
+	cout << "Enter an expression: ";	
+	while (cin >> expression)	
 	{
 		if (WhetherbacketsBalance(expression))
 			cout << "This expresstion using brackets is Ture！\n";
