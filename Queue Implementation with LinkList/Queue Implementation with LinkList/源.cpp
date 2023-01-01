@@ -15,15 +15,14 @@ bool IsEmpty();
 int Front(int* Array);
 
 
-int front = -1;
-int rear = -1;
-int size = 0;
+int front = -1;		//表征队列头
+int rear = -1;		//表征队列尾
+int size = 0;	
 
 void Enqueue(int* Array, int data) {
 	if (isFull()) return;
 	else if (IsEmpty()) {
-		rear = 0;
-		front = 0;
+		front = rear = 0;
 		Array[rear] = data;
 	}
 	else {
@@ -65,12 +64,12 @@ int Front(int* Array){
 
 
 int main() {
-	int Array[10];
-	int* head = NULL;
-	memset(Array, 0, sizeof(Array));
+	int Array[10];		//利用数组完成队列的实现
+	//int* head = NULL;
+	memset(Array, 0, sizeof(Array));	//初始化数组
 
-	size = sizeof(Array) / sizeof(int);
-	Enqueue(Array, 0);
+	size = sizeof(Array) / sizeof(int);		//计算数组中元素的个数
+	Enqueue(Array, 0);		//在队列尾部加数据
 	Enqueue(Array, 1);
 	Enqueue(Array, 2);
 	Dequeue();
@@ -96,18 +95,17 @@ int main() {
 	*Enqueue(Array, 12);
 	*/
 
-	/*
+	
 	if (rear > front) {
 		for (int ii = front; ii < rear + 1; ii++) {
 			printf("%d ", Array[ii]);
 
 		}
-	}
-	*/
+	}	
 	
 	if (rear < front) {
-		for (int ii = front; ii < rear+size+1; ii++) {
-			printf("%d ", Array[ii%size]);
+		for (int jj = front; jj < rear+size+1; jj++) {
+			printf("%d ", Array[jj%size]);
 
 		}
 	}
